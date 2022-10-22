@@ -60,7 +60,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+h1, h2, h3, h4, p, span{
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -khtml-user-select: none;
+  }
+  
 /* reset */
 .floor_home {
   background-color: rgb(140, 211, 201);
@@ -552,7 +561,9 @@ input[type="checkbox"] {
 .pit input[type="checkbox"]:checked+label {
   color: rgb(56, 56, 56);
 }
-
+.active{
+  background:white
+}
 .svgl {
   stroke: white;
   stroke-width: 1px;
@@ -612,6 +623,7 @@ input[type="submit"] {
   font-size: 18px;
   font-family: 'Roboto Condensed', sans-serif;
   color: rgba(254, 211, 79);
+  cursor:pointer
 }
 
 .collar {

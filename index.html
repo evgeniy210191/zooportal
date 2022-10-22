@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>zooportal</title>
-  <link rel="stylesheet" href="css/zooportal.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
@@ -34,11 +35,13 @@
             <button type="submit" class="button"></button>
           </form>
         </div>
-        <div class="dog"><img src="pictures/dog.png" alt="dog"></div>
+        <div class="dog">
+          <img src="pictures/dog.png" alt="dog">
+        </div>
       </div>
     </div>
-    <div class="floor floor_menu">
-      <nav>
+    <div class="floor floor_menu clearfix">
+      <nav id="nav">
         <ul>
           <li><a href="#">Обьявления</a></li>
           <li><a href="#">Питомники</a></li>
@@ -48,21 +51,27 @@
           <li><a href="#">Форум</a></li>
         </ul>
       </nav>
+      <div id="burger-menu" class="open_menu">
+        <span></span>
+      </div>
     </div>
+
   </header>
+
   <main>
-    <section>
+    <section class="main_blog">
       <div class="board">
         <h2><span>новые питомники</span><br>щенков и котят</h2>
         <ul>
-          <li><a href="#dog"></a></li>
+          <li class="active"><a href="#dog"></a></li>
           <li><a href="#cat"></a></li>
           <li><a href="#cats"></a></li>
         </ul>
-        <img id="dog" src="pictures/board.jpg" alt="щенки и котята">
+          <img id="board" src="pictures/board.jpg" alt="щенки и котята">
       </div>
       <h3>Самое свежее из блогов</h3>
       <div class="blog">
+        <img src="pictures/cats.jpg" alt="зоомагазин">
         <article class="shop">
           <a href="#">Где лучше покупать животных, на птичьем рынке или в зоомагазине?</a>
           <ul>
@@ -73,9 +82,9 @@
           <p>Практически у каждого, кто задумывается о покупке животного, возникает вопрос, где лучше приобрести себе друга, на птичьем рынке или в зоомагазине?</p>
           <a href="#">Читать подробнее...</a>
         </article>
-        <img src="pictures/cats.jpg" alt="зоомагазин">
       </div>
       <div class="cats">
+        <img src="pictures/dogs.jpg" alt="зоомагазин">
         <article class="shop">
           <a href="#">Как определить настроение собаки по вилянию хвоста</a>
           <ul>
@@ -86,9 +95,9 @@
           <p>О том, что довольная собака виляет хвостом, а напуганная его поджимает известно многим, но это далеко не все, что животное может сказать хвост.</p>
           <a href="#">Читать подробнее...</a>
         </article>
-        <img src="pictures/dogs.jpg" alt="зоомагазин">
       </div>
       <div class="skeleton">
+        <img src="pictures/skeleton.jpg" alt="зоомагазин">
         <article class="shop">
           <a href="#">Ученые палеонтологи обнаружили останки доисторических собак</a>
           <ul>
@@ -99,10 +108,9 @@
           <p>Международная группа палеонтологов совершенно случайно наткнулась на останки животного, которое не было ранее известно науке.</p>
           <a href="#">Читать подробнее...</a>
         </article>
-        <img src="pictures/skeleton.jpg" alt="зоомагазин">
       </div>
     </section>
-    <aside>
+    <aside class="aside">
       <div class="survey">
         <form action="#">
           <h4 class="one">Опрос</h4>
@@ -226,6 +234,28 @@
     <div>
     </div>
   </footer>
+
+  <script>
+    const nav = document.getElementById('nav')
+    const burger_menu = document.getElementById('burger-menu')
+    const body = document.querySelector('body')
+    burger_menu.onclick= function(event) {
+      if(nav.classList.contains('burger')){
+        nav.classList.remove('burger')
+      } else {
+        nav.classList.add('burger')
+      }
+      if (burger_menu.classList.contains('open_menu')) {
+        burger_menu.classList.remove('open_menu')
+        burger_menu.classList.add('close_menu')
+      } else {
+        burger_menu.classList.remove('close_menu')
+        burger_menu.classList.add('open_menu')
+      }
+
+        body.classList.toggle('lock')
+    }
+  </script>
 </body>
 
 </html>
