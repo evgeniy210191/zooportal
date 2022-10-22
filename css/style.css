@@ -292,7 +292,7 @@ main{
 .board li{
   display: inline-block;
 }
-.board li.active{
+.active{
   background:white;
 }
 
@@ -746,13 +746,18 @@ input[type="submit"] {
                         "main-aside";
     justify-content:center;
     justify-items:center;
-    text-align: center;
     row-gap:30px
   }
   .blog, .cats, .skeleton{
     padding:27px 16px 0;
     justify-items:end
   }
+}
+.collar>img{
+  display: none;
+}
+.svgl{
+  left:6%
 }
 @media (max-width:670px) {
   .board{
@@ -761,10 +766,11 @@ input[type="submit"] {
   .blog, .cats, .skeleton{
     display:grid;
     grid-template:"img" 1fr []
-                  "article" 1fr/1fr;
+                  "article" auto/1fr;
     justify-items: center;
     row-gap: 20px;
-    padding: 27px 16px 0;
+    padding: 27px 16px 27px;
     margin:0
   }
+
 }

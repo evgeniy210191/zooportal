@@ -63,9 +63,10 @@
       <div class="board">
         <h2><span>новые питомники</span><br>щенков и котят</h2>
         <ul>
-          <li class="active"><a href="#dog"></a></li>
-          <li><a href="#cat"></a></li>
-          <li><a href="#cats"></a></li>
+          <li class="active list_bord"><a href="pictures/board.jpg"></a></li>
+          <li class="list_bord"><a href="pictures/cat_img.jpg"></a></li>
+          <li class="list_bord"><a href="#board"></a></li>
+          <!-- pictures/cats_img.jpg -->
         </ul>
           <img id="board" src="pictures/board.jpg" alt="щенки и котята">
       </div>
@@ -236,10 +237,10 @@
   </footer>
 
   <script>
-    const nav = document.getElementById('nav')
     const burger_menu = document.getElementById('burger-menu')
-    const body = document.querySelector('body')
     burger_menu.onclick= function(event) {
+      const nav = document.getElementById('nav')
+      const body = document.querySelector('body')
       if(nav.classList.contains('burger')){
         nav.classList.remove('burger')
       } else {
@@ -255,6 +256,16 @@
 
         body.classList.toggle('lock')
     }
+    // const active = document.querySelector('.active>a')
+    const listImg = document.getElementsByClassName('list_bord')
+    for (const x of listImg) {
+      x.onclick = function (event) {
+        event.preventDefault() 
+        this.classList.add('active')
+      }
+    }
+      
+
   </script>
 </body>
 
