@@ -22,6 +22,7 @@
       <div class="info vira">
         <div class="name_company">
           <a href="#">
+
             <div class=" logo">
               <img src="pictures/logo_v.png" alt="pets_today">
             </div>
@@ -35,6 +36,7 @@
             <button type="submit" class="button"></button>
           </form>
         </div>
+
         <div class="dog">
           <img src="pictures/dog.png" alt="dog">
         </div>
@@ -60,15 +62,29 @@
 
   <main>
     <section class="main_blog">
-      <div class="board">
+      <div class="board" id="carousel">
         <h2><span>новые питомники</span><br>щенков и котят</h2>
-        <ul>
+        <ul class="list">
           <li class="active list_bord"><a href="pictures/board.jpg"></a></li>
           <li class="list_bord"><a href="pictures/cat_img.jpg"></a></li>
           <li class="list_bord"><a href="#board"></a></li>
-          <!-- pictures/cats_img.jpg -->
         </ul>
-          <img id="board" src="pictures/board.jpg" alt="щенки и котята">
+        <button class="arrow prev">
+          <svg height="15" width="20">
+            <polygon points="20,7.5 12,7.5 12,3 0,7.5 12,12 12,7.5" 
+            style="fill:aqua; stroke:aqua; stroke-width: 1px; pointer-events: none;" />
+          </svg>
+        </button>
+        <button class="arrow next">
+        <svg height="15" width="20">
+          <polygon points="0,7.5 8,7.5 8,3 20,7.5 8,12 8,7.5" 
+          style="fill:aqua; stroke:aqua; stroke-width: 1px; pointer-events: none;" />
+        </svg></button>
+        <ul class="ul_img_board">
+          <li class="img_board"><img src="pictures/board.jpg" alt="щенки и котята"></li>
+          <li class="img_board"><img src="pictures/cat_img.jpg"></li>
+          <li class="img_board"><img src="pictures/cats_img.jpg"></li>
+        </ul>
       </div>
       <h3>Самое свежее из блогов</h3>
       <div class="blog">
@@ -189,7 +205,7 @@
   </div>
   <h3>Получайте интересные статьи первыми!</h3>
   <div class="mail">
-    <form action="#">
+    <form action="#" id="mail_form" class="mail_form">
       <input type="text" placeholder="Ваше имя">
       <input type="email" placeholder="E-mail">
       <input type="submit" value="Подписаться">
@@ -197,7 +213,7 @@
   </div>
   <footer>
     <div class="floor_menu maina">
-      <nav>
+      <nav id="nav">
         <ul>
           <li><a href="#">Обьявления</a></li>
           <li><a href="#">Питомники</a></li>
@@ -207,6 +223,9 @@
           <li><a href="#">Форум</a></li>
         </ul>
       </nav>
+      <div id="burger-menu" class="open_menu">
+        <span></span>
+      </div>
     </div>
     <div class="info floor">
       <div class="name_company">
@@ -237,6 +256,7 @@
   </footer>
 
   <script>
+
     const burger_menu = document.getElementById('burger-menu')
     burger_menu.onclick= function(event) {
       const nav = document.getElementById('nav')
@@ -265,7 +285,31 @@
       }
     }
       
+    let width = 630; // ширина картинки
+    let count = 1; // видимое количество изображений
 
+    let list = carousel.querySelector('.ul_img_board');
+    let listElems = carousel.querySelectorAll('.img_board');
+
+    let position = 0; // положение ленты прокрутки
+
+    carousel.querySelector('.prev').onclick = function() {
+      // сдвиг влево
+      position += width * count;
+      // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+      position = Math.min(position, 0)
+        console.log(position)
+      list.style.marginLeft = position + 'px';
+    };
+
+    carousel.querySelector('.next').onclick = function() {
+      // сдвиг вправо
+      position -= width * count;
+      // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
+      position = Math.max(position, -width * (listElems.length - count));
+      list.style.marginLeft = position + 'px';
+      console.log(position)
+    };
   </script>
 </body>
 

@@ -72,19 +72,38 @@ h1, h2, h3, h4, p, span{
   /* font-family: 'Open Sans', sans-serif;
   font-family: 'bebas'; */
 /* reset */
+.arrow{
+  background-color: transparent;
+  border:none;
+  cursor: pointer;
+}
+.prev{
+  position:absolute;
+  bottom:4px;
+  left:40%;
+  transform: translateY(-50%);
+
+}
+.next{
+  position:absolute;
+  bottom:4px;
+  right:40%;
+  transform: translateY(-50%);
+}
+.gallery>li{
+  display:inline-block;
+  position:relative
+}
 header{
   width:100%;
   background:rgb(106, 196, 184);
 }
-.floor{
-  text-align:center;
-  width:100%
-}
+
 .floor>*{
-  max-width:960px;
   margin:0 auto;
 }
 .floor_home{
+  text-align:center;
   font-size:0;
   background-color:rgb(140, 211, 201);
   background-image: url('../pictures/pin.png');
@@ -141,6 +160,7 @@ header{
   align-items:center;
   justify-items: center;
   padding: 14px 0 0 0;
+  text-align: center;
 }
 .dog{
   grid-area:dog;
@@ -211,6 +231,10 @@ input[type="search"] {
   height: 13px;
   background: url('../pictures/sprites.png') -20px -20px;
 }
+nav{
+  width:960px;
+  margin:0 auto;
+}
 nav>ul {
   padding: 15px 38px 17px 38px;
   display: flex;
@@ -262,17 +286,22 @@ main{
   grid-area:main-aside;
 }
 .board {
+  overflow: hidden;
   position: relative;
   max-width:630px;
-  margin:0 auto
+  margin:0 auto;
 }
+.ul_img_board{
+  display:flex;
 
-.board li {
+}
+.list li {
   width: 10px;
   height: 10px;
   border: 1px solid white;
   border-radius: 50%;
   margin: 0 2px;
+  display: inline-block;
 }
 .board a {
   width: 100%;
@@ -281,7 +310,7 @@ main{
   position: relative;
 }
 
-.board>ul {
+.list {
   position: absolute;
   text-align: center;
   bottom: 16px;
@@ -289,9 +318,6 @@ main{
   transform: translatex(-50%);
 }
 
-.board li{
-  display: inline-block;
-}
 .active{
   background:white;
 }
@@ -338,6 +364,7 @@ h3 {
 }
 section img{
   grid-area:img;
+  display:block;
 }
 section article{
   grid-area:article
@@ -594,7 +621,212 @@ input[type="submit"] {
   box-shadow: inset 0 -1px rgb(56, 56, 56);
   letter-spacing: -0.14px;
 }
+main+div {
+  background: rgb(243, 243, 243);
+  padding: 4px 0 2px 0;
+}
 
+.advice {
+  max-width: 960px;
+  display: grid;
+  grid-template:"photo chuma health" 1fr/1fr 1fr 1fr;
+  gap:30px;
+  margin: 30px auto;
+  border-top: 1px solid rgb(227, 227, 227);
+  justify-items: center;
+}
+
+.advice>div {
+  height: 226px;
+  width: 300px;
+  background: url('../pictures/sprites.png');
+}
+
+.advice>.photo {
+  background-position: -577px -508px;
+  grid-area: photo;
+}
+
+.advice>.chuma {
+  background-position: -877px -734px;
+  grid-area:chuma;
+}
+
+.advice>.health {
+  background-position: -1177px -960px;
+  grid-area:health
+}
+
+.advice p {
+  background: rgba(80, 158, 169, .5);
+  padding: 5px 30px 10px 20px;
+  margin: 166px 0 0 0;
+  line-height: 23px;
+  letter-spacing: -0.21px;
+}
+
+.advice p>a {
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  text-decoration: none;
+  box-shadow: inset 0 -1px white;
+}
+.mail {
+  border-top: 1px solid rgb(227, 227, 227);
+  width: 960px;
+  margin: 0 auto 31px auto;
+  padding: 30px 0;
+}
+
+.mail form {
+  padding: 40px 0;
+  background: rgb(254, 211, 79);
+  width: 960px;
+  border-radius: 4px;
+  font-size: 0px;
+}
+
+.mail input[type="submit"] {
+  background: rgb(106, 196, 184);
+  border-bottom: 2px solid rgb(76, 151, 161);
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  width: 140px;
+  height: 42px;
+  transform: translatey(4%);
+  box-sizing: border-box;
+  margin: 0 20px 0 20px;
+}
+
+.mail input[type="text"], .mail input[type="email"] {
+  width: 370px;
+  height: 42px;
+  border: none;
+  border-bottom: 2px solid rgb(219, 181, 63);
+  outline: none;
+  box-sizing: border-box;
+  margin: 0 0 0 20px;
+  padding: 0 0 0 20px;
+}
+
+.mail input::placeholder {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(119, 119, 119);
+}
+footer {
+  background: rgb(21, 125, 140);
+  height: 201px;
+}
+footer>div{
+  margin:0 auto
+}
+.floor{
+  padding:0;
+}
+#logo_m {
+  color: rgb(106, 196, 184);
+  font-family: Roboto Condensed, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0 0 0 6px;
+}
+.net {
+  width: 228px;
+}
+
+.net p {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  color: white;
+  display: inline-block;
+  letter-spacing: -0.5px;
+  margin: 0 4px 0 0;
+  vertical-align: middle;
+}
+
+.net>p {
+  color: rgb(106, 196, 184);
+  padding: 7px 50px 8px 0;
+  position: relative;
+}
+
+.net>p>a {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  color: rgb(106, 196, 184);
+  letter-spacing: -0.5px;
+  box-shadow: inset 0 -1px rgb(106, 196, 184)
+}
+
+.pets+ul {
+  display: inline-block;
+  font-size: 0;
+  vertical-align: middle;
+}
+
+.pets+ul>li {
+  background: url('../pictures/sprites.png') -270px -261px;
+  width: 31px;
+  height: 32px;
+}
+
+.pets+ul>li+li {
+  background-position: -301px -292px
+}
+
+.pets+ul>li+li+li {
+  background-position: -208px -199px
+}
+
+.floor a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
+.social {
+  margin: 30px 0 27px 0;
+  font-size: 0;
+}
+
+.net>p::after {
+  content: "";
+  background: url(../pictures/sprites.png) -239px -230px;
+  width: 31px;
+  height: 31px;
+  position: absolute;
+  top: -0%;
+  right: -1%;
+}
+
+.social li {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.maina {
+  border-bottom: 1px solid rgb(153, 218, 210)
+}
+
+.name_company {
+  margin: auto 0;
+}
+
+mn {
+  min-height: 148px
+}
+
+.zoo {
+  margin: -10px;
+}
 @media (max-width:990px) {
     .lock{
     overflow:hidden;
@@ -752,13 +984,29 @@ input[type="submit"] {
     padding:27px 16px 0;
     justify-items:end
   }
+  .collar>img{
+    display: none;
+  }
+  .svgl{
+    left:6%
+  }
+  .mail{
+    width: 100%;
+  }
+  .mail>.mail_form{
+    width: 100%;
+  }
+  .mail>.mail_form>input{
+  display:block;
+  margin: 5px auto;
+  }
+  .advice {
+    grid-template:"photo" 1fr []
+                  "chuma" 1fr []
+                  "health" 1fr/1fr;
+  }
 }
-.collar>img{
-  display: none;
-}
-.svgl{
-  left:6%
-}
+
 @media (max-width:670px) {
   .board{
     display:none;
@@ -772,5 +1020,7 @@ input[type="submit"] {
     padding: 27px 16px 27px;
     margin:0
   }
-
+  .mail>#mail_form>input{
+    width:100%;
+    }
 }
