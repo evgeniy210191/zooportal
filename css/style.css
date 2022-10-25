@@ -72,24 +72,6 @@ h1, h2, h3, h4, p, span{
   /* font-family: 'Open Sans', sans-serif;
   font-family: 'bebas'; */
 /* reset */
-.arrow{
-  background-color: transparent;
-  border:none;
-  cursor: pointer;
-}
-.prev{
-  position:absolute;
-  bottom:4px;
-  left:40%;
-  transform: translateY(-50%);
-
-}
-.next{
-  position:absolute;
-  bottom:4px;
-  right:40%;
-  transform: translateY(-50%);
-}
 .gallery>li{
   display:inline-block;
   position:relative
@@ -161,6 +143,8 @@ header{
   justify-items: center;
   padding: 14px 0 0 0;
   text-align: center;
+  width: 960px;
+  margin: 0 auto;
 }
 .dog{
   grid-area:dog;
@@ -852,6 +836,7 @@ mn {
     align-items:center;
     justify-items: center;
     padding: 14px 0 20px 0;
+    width: auto;
   }
   .floor{
     grid-template:1fr 1fr 1fr/ 1fr;
@@ -1037,5 +1022,19 @@ mn {
   }
   .mail>#mail_form>input{
     width: 80%;
+  }
+}
+@media (max-width:400px) {
+  main li{
+    display: block;
+  }
+  article li:last-child {
+    transform: translateX(0%);
+  }
+  .zoo{
+    transform:scale(0.8)
+  }
+  .home li::before, .home li::after{
+    display: none;
   }
 }

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=Yes" >
   <title>zooportal</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -64,21 +64,10 @@
       <div class="board" id="carousel">
         <h2><span>новые питомники</span><br>щенков и котят</h2>
         <ul class="list">
-          <li class="active list_bord"><a href="pictures/board.jpg"></a></li>
-          <li class="list_bord"><a href="pictures/cat_img.jpg"></a></li>
+          <li class="active list_bord"><a href="#board"></a></li>
+          <li class="list_bord"><a href="#board"></a></li>
           <li class="list_bord"><a href="#board"></a></li>
         </ul>
-        <button class="arrow prev">
-          <svg height="15" width="20">
-            <polygon points="20,7.5 12,7.5 12,3 0,7.5 12,12 12,7.5" 
-            style="fill:aqua; stroke:aqua; stroke-width: 1px; pointer-events: none;" />
-          </svg>
-        </button>
-        <button class="arrow next">
-        <svg height="15" width="20">
-          <polygon points="0,7.5 8,7.5 8,3 20,7.5 8,12 8,7.5" 
-          style="fill:aqua; stroke:aqua; stroke-width: 1px; pointer-events: none;" />
-        </svg></button>
         <ul class="ul_img_board">
           <li class="img_board"><img src="pictures/board.jpg" alt="щенки и котята"></li>
           <li class="img_board"><img src="pictures/cat_img.jpg"></li>
@@ -280,40 +269,21 @@
         body.classList.toggle('lock')
       }
     }
-    // const active = document.querySelector('.active>a')
-    const listImg = document.getElementsByClassName('list_bord')
-    for (const x of listImg) {
-      x.onclick = function (event) {
-        event.preventDefault() 
-        this.classList.add('active')
-      }
-    }
-      
-    let width = 630; // ширина картинки
-    let count = 1; // видимое количество изображений
-
+    let width = 630;
     let list = carousel.querySelector('.ul_img_board');
     let listElems = carousel.querySelectorAll('.img_board');
-
-    let position = 0; // положение ленты прокрутки
-
-    carousel.querySelector('.prev').onclick = function() {
-      // сдвиг влево
-      position += width * count;
-      // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-      position = Math.min(position, 0)
-        console.log(position)
-      list.style.marginLeft = position + 'px';
-    };
-
-    carousel.querySelector('.next').onclick = function() {
-      // сдвиг вправо
-      position -= width * count;
-      // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-      position = Math.max(position, -width * (listElems.length - count));
-      list.style.marginLeft = position + 'px';
-      console.log(position)
-    };
+    const listImg = document.getElementsByClassName('list_bord')
+    for (const x in listImg) {
+      listImg[x].onclick = function (event) {
+        event.preventDefault()
+        const listActive = document.querySelector('.active')
+        listActive.classList.remove('active')
+        listImg[x].classList.add('active')
+        let countdown = x;
+        position = width * countdown;
+        list.style.marginLeft = - position + 'px';
+        }
+      }
   </script>
 </body>
 
