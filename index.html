@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <div class="floor_home floor">
+    <div class="floor_home">
       <div class="home">
         <ul>
           <li><a href="#">О проекте</a></li>
@@ -18,11 +18,10 @@
         </ul>
       </div>
     </div>
-    <div class="floor floor_info">
+    <div class="floor_info">
       <div class="info vira">
         <div class="name_company">
           <a href="#">
-
             <div class=" logo">
               <img src="pictures/logo_v.png" alt="pets_today">
             </div>
@@ -42,8 +41,8 @@
         </div>
       </div>
     </div>
-    <div class="floor floor_menu clearfix">
-      <nav id="nav">
+    <div class="floor_menu clearfix">
+      <nav class="nav">
         <ul>
           <li><a href="#">Обьявления</a></li>
           <li><a href="#">Питомники</a></li>
@@ -53,7 +52,7 @@
           <li><a href="#">Форум</a></li>
         </ul>
       </nav>
-      <div id="burger-menu" class="open_menu">
+      <div class="open_menu burger_menu">
         <span></span>
       </div>
     </div>
@@ -212,8 +211,8 @@
     </form>
   </div>
   <footer>
-    <div class="floor_menu maina">
-      <nav id="nav">
+    <div class="floor_menu maina clearfix">
+      <nav class="nav">
         <ul>
           <li><a href="#">Обьявления</a></li>
           <li><a href="#">Питомники</a></li>
@@ -223,58 +222,63 @@
           <li><a href="#">Форум</a></li>
         </ul>
       </nav>
-      <div id="burger-menu" class="open_menu">
+      <div class="open_menu burger_menu">
         <span></span>
       </div>
     </div>
-    <div class="info floor">
-      <div class="name_company">
-        <a href="#">
-          <div class="logo">
-            <img src="pictures/logo_m.png" alt="pets_today">
-          </div>
-          <span id="logo_m">Pets Today</span>
-        </a>
-      </div>
-      <div class="zoo">
-        <img src="pictures/zoo.png" alt="zooportal">
-      </div>
-      <div class="net">
-        <div class="social">
-          <p class="pets">Pets Today © 2015</p>
-          <ul>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-          </ul>
+    <div class="floor_info">
+      <div class="info floor">
+        <div class="name_company">
+          <a href="#">
+            <div class="logo">
+              <img src="pictures/logo_m.png" alt="pets_today">
+            </div>
+            <span id="logo_m">Pets Today</span>
+          </a>
         </div>
-        <p class="site"><a href="#">Создание сайта</a> - WebСтрой</p>
+        <div class="zoo">
+          <img src="pictures/zoo.png" alt="zooportal">
+        </div>
+        <div class="net">
+          <div class="social">
+            <p class="pets">Pets Today © 2015</p>
+            <ul>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+            </ul>
+          </div>
+          <p class="site"><a href="#">Создание сайта</a> - WebСтрой</p>
+        </div>
       </div>
-    </div>
-    <div>
     </div>
   </footer>
 
   <script>
 
-    const burger_menu = document.getElementById('burger-menu')
-    burger_menu.onclick= function(event) {
-      const nav = document.getElementById('nav')
+    const burger_menu = document.getElementsByClassName('burger_menu')
+    for (const burger of burger_menu) {
+      burger.onclick= function(event) {
+      const nav = document.getElementsByClassName('nav')
       const body = document.querySelector('body')
-      if(nav.classList.contains('burger')){
-        nav.classList.remove('burger')
-      } else {
-        nav.classList.add('burger')
+      console.log(nav)
+      for (const x of nav) {
+        if(x.classList.contains('burger')){
+          x.classList.remove('burger')
+        } else {
+          x.classList.add('burger')
+        }
       }
-      if (burger_menu.classList.contains('open_menu')) {
-        burger_menu.classList.remove('open_menu')
-        burger_menu.classList.add('close_menu')
+      if (burger.classList.contains('open_menu')) {
+        burger.classList.remove('open_menu')
+        burger.classList.add('close_menu')
       } else {
-        burger_menu.classList.remove('close_menu')
-        burger_menu.classList.add('open_menu')
+        burger.classList.remove('close_menu')
+        burger.classList.add('open_menu')
       }
-
+      console.log(burger_menu)
         body.classList.toggle('lock')
+      }
     }
     // const active = document.querySelector('.active>a')
     const listImg = document.getElementsByClassName('list_bord')

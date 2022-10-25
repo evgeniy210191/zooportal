@@ -700,6 +700,7 @@ main+div {
   transform: translatey(4%);
   box-sizing: border-box;
   margin: 0 20px 0 20px;
+  border-radius:8px
 }
 
 .mail input[type="text"], .mail input[type="email"] {
@@ -711,6 +712,7 @@ main+div {
   box-sizing: border-box;
   margin: 0 0 0 20px;
   padding: 0 0 0 20px;
+  border-radius:8px
 }
 
 .mail input::placeholder {
@@ -851,6 +853,19 @@ mn {
     justify-items: center;
     padding: 14px 0 20px 0;
   }
+  .floor{
+    grid-template:1fr 1fr 1fr/ 1fr;
+    display:grid;
+    grid-template-areas:"name"
+                        "search";
+    align-content: space-around;
+    align-items:center;
+    justify-items: center;
+  }
+  footer{
+    height:auto
+  }
+
   .floor_home{
     background-image:none
 
@@ -886,7 +901,7 @@ mn {
     width:100%;
     height:100%;
     background:rgb(21, 125, 140);
-    z-index:3;
+    z-index:2;
   }
   .burger ul {
     display: flex;
@@ -1021,6 +1036,6 @@ mn {
     margin:0
   }
   .mail>#mail_form>input{
-    width:100%;
-    }
+    width: 80%;
+  }
 }
