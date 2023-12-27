@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=Yes" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <title>zooportal</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -78,10 +78,10 @@
       <div class="blog">
         <img src="pictures/cats.jpg" alt="зоомагазин">
         <article class="shop">
-          <a href="#">Где лучше покупать животных, на птичьем рынке или в зоомагазине?</a>
+          <a href="#" class="ask">Где лучше покупать животных, на птичьем рынке или в зоомагазине?</a>
           <ul>
             <li>24 апреля, 2015</li>
-            <li>4</li>
+            <li class="visit">4</li>
             <li>7</li>
           </ul>
           <p>Практически у каждого, кто задумывается о покупке животного, возникает вопрос, где лучше приобрести себе друга, на птичьем рынке или в зоомагазине?</p>
@@ -91,10 +91,10 @@
       <div class="cats">
         <img src="pictures/dogs.jpg" alt="зоомагазин">
         <article class="shop">
-          <a href="#">Как определить настроение собаки по вилянию хвоста</a>
+          <a href="#" class="ask">Как определить настроение собаки по вилянию хвоста</a>
           <ul>
             <li>19 апреля, 2015</li>
-            <li>11</li>
+            <li class="visit">11</li>
             <li>15</li>
           </ul>
           <p>О том, что довольная собака виляет хвостом, а напуганная его поджимает известно многим, но это далеко не все, что животное может сказать хвост.</p>
@@ -104,10 +104,10 @@
       <div class="skeleton">
         <img src="pictures/skeleton.jpg" alt="зоомагазин">
         <article class="shop">
-          <a href="#">Ученые палеонтологи обнаружили останки доисторических собак</a>
+          <a href="#" class="ask">Ученые палеонтологи обнаружили останки доисторических собак</a>
           <ul>
             <li>08 апреля, 2015</li>
-            <li>39</li>
+            <li class="visit">39</li>
             <li>27</li>
           </ul>
           <p>Международная группа палеонтологов совершенно случайно наткнулась на останки животного, которое не было ранее известно науке.</p>
@@ -117,7 +117,7 @@
     </section>
     <aside class="aside">
       <div class="survey">
-        <form action="#">
+        <form action="#close_vote">
           <h4 class="one">Опрос</h4>
           <div class="pit">
             <p class="question">Какой питомец сейчас живет у Вас дома?</p>
@@ -156,10 +156,15 @@
                 <path d="M1 6 l4 4 L14 1" />
               </svg>
             </p>
+            <div id="vote">
+            </div>
+            <div id="close_vote">
+              <span></span>
+            </div>
           </div>
           <ul>
-            <li><input type="submit" value="Голосовать"></li>
-            <li><a href="#">Результаты</a></li>
+            <li><input type="submit" value="Голосовать" ></li>
+            <li id="open_vote" ><a href="#">Результаты</a></li>
             <li><a href="#">Все опросы</a></li>
           </ul>
         </form>
@@ -271,7 +276,6 @@
     }
     let width = 630;
     let list = carousel.querySelector('.ul_img_board');
-    let listElems = carousel.querySelectorAll('.img_board');
     const listImg = document.getElementsByClassName('list_bord')
     for (const x in listImg) {
       listImg[x].onclick = function (event) {
@@ -284,6 +288,29 @@
         list.style.marginLeft = - position + 'px';
         }
       }
+    const vote = document.getElementById('vote'),
+    closeVote = document.getElementById('close_vote'),
+    openVote = document.getElementById('open_vote');
+    openVote.onclick = function (event) {
+      event.preventDefault()
+      vote.style = `
+        position:absolute;
+        width:100%;
+        height:auto;
+        min-height:100%;
+        top:0;
+        left:0;
+        background:rgb(254, 211, 79);
+        display:block;
+      `
+      closeVote.classList.add('close_vote')
+     
+    }
+    closeVote.onclick = function (event) {
+      vote.style = 'display:none';
+      closeVote.classList.remove('close_vote')
+    }
+
   </script>
 </body>
 
